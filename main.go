@@ -17,7 +17,7 @@ func main() {
 		log.Fatal("Could not load environmental variables")
 	}
 
-	fmt.Print("Server will be running on Port: " + os.Getenv("PORT"))
+	fmt.Println("Server will be running on Port: " + os.Getenv("PORT"))
 
 	server := &http.Server{
 		Addr:           ":" + os.Getenv("PORT"),
@@ -26,9 +26,9 @@ func main() {
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	server_error := server.ListenAndServe()
+	server_err := server.ListenAndServe()
 
-	if server_error != nil {
-		panic(server_error)
+	if server_err != nil {
+		panic(server_err)
 	}
 }
